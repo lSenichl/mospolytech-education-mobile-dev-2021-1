@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'Labs/lab01.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter App by lSenichl',
       home: MyHomePage(),
     );
   }
@@ -20,6 +20,13 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          brightness: Brightness.dark,
+          primarySwatch: Colors.green,
+          primaryColor: Colors.green,
+          accentColor: Colors.green,
+          unselectedWidgetColor: Colors.green),
       home: DefaultTabController(
         length: 10,
         child: Scaffold(
@@ -45,16 +52,70 @@ class MyHomePage extends StatelessWidget {
           ),
           body: TabBarView(
             children: [
-              Icon(Icons.directions_car),
-              Icon(Icons.directions_transit),
-              Icon(Icons.directions_bike),
-              Icon(Icons.directions_bike),
-              Icon(Icons.directions_bike),
-              Icon(Icons.directions_car),
-              Icon(Icons.directions_transit),
-              Icon(Icons.directions_bike),
-              Icon(Icons.directions_bike),
-              Icon(Icons.directions_bike),
+              Lab01(),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'В разработке...',
+                  textDirection: TextDirection.ltr,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'В разработке...',
+                  textDirection: TextDirection.ltr,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'В разработке...',
+                  textDirection: TextDirection.ltr,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'В разработке...',
+                  textDirection: TextDirection.ltr,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'В разработке...',
+                  textDirection: TextDirection.ltr,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'В разработке...',
+                  textDirection: TextDirection.ltr,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'В разработке...',
+                  textDirection: TextDirection.ltr,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'В разработке...',
+                  textDirection: TextDirection.ltr,
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'В разработке...',
+                  textDirection: TextDirection.ltr,
+                ),
+              ),
             ],
           ),
         ),

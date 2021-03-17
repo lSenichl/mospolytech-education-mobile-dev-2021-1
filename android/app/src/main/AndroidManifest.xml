@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.baryshnikov_ss_191_351">
    <application
-        android:label="baryshnikov_ss_191_351"
+        android:label="Baryshnikov_ss_191_351"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

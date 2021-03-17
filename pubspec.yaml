@@ -23,8 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  english_words:
   sleek_circular_slider:
+  syncfusion_flutter_sliders:
 
 
   # The following adds the Cupertino Icons font to your application.
