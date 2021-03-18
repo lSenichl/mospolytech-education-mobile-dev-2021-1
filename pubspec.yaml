@@ -25,6 +25,11 @@ dependencies:
     sdk: flutter
   sleek_circular_slider:
   syncfusion_flutter_sliders:
+  video_player:
+  chewie:
+  path_provider:
+
+  camera_camera:
 
 
   # The following adds the Cupertino Icons font to your application.

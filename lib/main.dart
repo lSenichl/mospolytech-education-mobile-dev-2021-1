@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Labs/lab01.dart';
+import 'Labs/lab02.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,6 +23,7 @@ class MyHomePage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+          visualDensity: VisualDensity.adaptivePlatformDensity,
           brightness: Brightness.dark,
           primarySwatch: Colors.green,
           primaryColor: Colors.green,
@@ -53,13 +55,7 @@ class MyHomePage extends StatelessWidget {
           body: TabBarView(
             children: [
               Lab01(),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'В разработке...',
-                  textDirection: TextDirection.ltr,
-                ),
-              ),
+              Lab02(),
               Align(
                 alignment: Alignment.center,
                 child: Text(
