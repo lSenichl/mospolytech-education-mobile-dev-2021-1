@@ -3,6 +3,77 @@ import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:camera_camera/camera_camera.dart';
+import 'dart:io';
+
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  File val;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        floatingActionButton: Stack(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left: 31),
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: FloatingActionButton(
+                    child: Icon(Icons.camera_alt),
+                    onPressed: () async {
+                      val = await showDialog(
+                          context: context,
+                          builder: (context) => Camera(
+                                mode: CameraMode.fullscreen,
+                                //initialCamera: CameraSide.front,
+                                //enableCameraChange: false,
+                                //  orientationEnablePhoto: CameraOrientation.landscape,
+                                onChangeCamera: (direction, _) {
+                                  print('--------------');
+                                  print('$direction');
+                                  print('--------------');
+                                },
+
+                                // imageMask: CameraFocus.square(
+                                //   color: Colors.black.withOpacity(0.5),
+                                // ),
+                              ));
+                      setState(() {});
+                    }),
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: FloatingActionButton(
+                  child: Icon(Icons.add_photo_alternate),
+                  onPressed: () async {
+                    File val = await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                Camera(onFile: (File val) => val)));
+                  }),
+            ),
+          ],
+        ),
+        body: Center(
+            child: Container(
+                height: MediaQuery.of(context).size.height * 0.8,
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: val != null
+                    ? Image.file(
+                        val,
+                        fit: BoxFit.contain,
+                      )
+                    : Center(
+                        child: Text("Нажмите кнопку \"Сделать фото\" !",
+                            style: TextStyle(fontSize: 25))))));
+  }
+}
 
 class Lab02 extends StatefulWidget {
   @override
@@ -15,7 +86,7 @@ class Lab02State extends State<Lab02> {
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = [
     VideoPlayer(),
-    //CameraExampleHome(),
+    HomeScreen(),
   ];
 
   void _onItemTapped(int index) {

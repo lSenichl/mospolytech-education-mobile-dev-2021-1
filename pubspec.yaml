@@ -29,7 +29,8 @@ dependencies:
   chewie:
   path_provider:
 
-  camera_camera:
+  camera_camera: ^1.0.34+1
+  camera: ^0.7.0+2
 
 
   # The following adds the Cupertino Icons font to your application.
