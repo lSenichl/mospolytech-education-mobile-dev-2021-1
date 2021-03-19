@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'Labs/lab01.dart';
 import 'Labs/lab02.dart';
+import 'Labs/lab03.dart';
+import 'Labs/labDop01.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,7 +32,7 @@ class MyHomePage extends StatelessWidget {
           accentColor: Colors.green,
           unselectedWidgetColor: Colors.green),
       home: DefaultTabController(
-        length: 10,
+        length: 11,
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
@@ -38,6 +40,7 @@ class MyHomePage extends StatelessWidget {
               tabs: [
                 Tab(text: 'Lab01'),
                 Tab(text: 'Lab02'),
+                Tab(text: 'LabDop01'),
                 Tab(text: 'Lab03'),
                 Tab(text: 'Lab04'),
                 Tab(text: 'Lab05'),
@@ -56,13 +59,8 @@ class MyHomePage extends StatelessWidget {
             children: [
               Lab01(),
               Lab02(),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'В разработке...',
-                  textDirection: TextDirection.ltr,
-                ),
-              ),
+              LabDop01(),
+              Lab03(),
               Align(
                 alignment: Alignment.center,
                 child: Text(
