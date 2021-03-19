@@ -28,6 +28,8 @@ dependencies:
   video_player:
   chewie:
   path_provider:
+  flutter_file_dialog:
+  image_gallery_saver:
 
   camera_camera: ^1.0.34+1
   camera: ^0.7.0+2

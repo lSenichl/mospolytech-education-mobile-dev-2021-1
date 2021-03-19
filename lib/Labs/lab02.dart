@@ -4,13 +4,14 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:camera_camera/camera_camera.dart';
 import 'dart:io';
+import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 
-class HomeScreen extends StatefulWidget {
+class CameraScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _CameraScreenState createState() => _CameraScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _CameraScreenState extends State<CameraScreen> {
   File val;
 
   @override
@@ -21,43 +22,39 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: EdgeInsets.only(left: 31),
               child: Align(
-                alignment: Alignment.bottomLeft,
+                alignment: Alignment.bottomRight,
                 child: FloatingActionButton(
                     child: Icon(Icons.camera_alt),
                     onPressed: () async {
                       val = await showDialog(
                           context: context,
                           builder: (context) => Camera(
+                                orientationEnablePhoto: CameraOrientation.all,
                                 mode: CameraMode.fullscreen,
-                                //initialCamera: CameraSide.front,
-                                //enableCameraChange: false,
-                                //  orientationEnablePhoto: CameraOrientation.landscape,
                                 onChangeCamera: (direction, _) {
                                   print('--------------');
                                   print('$direction');
                                   print('--------------');
                                 },
-
-                                // imageMask: CameraFocus.square(
-                                //   color: Colors.black.withOpacity(0.5),
-                                // ),
                               ));
                       setState(() {});
+                      final params =
+                          SaveFileDialogParams(sourceFilePath: val.path);
+                      final filePath =
+                          await FlutterFileDialog.saveFile(params: params);
+                      print(filePath);
                     }),
               ),
             ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: FloatingActionButton(
-                  child: Icon(Icons.add_photo_alternate),
-                  onPressed: () async {
-                    File val = await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                Camera(onFile: (File val) => val)));
-                  }),
-            ),
+            //Align(
+            //alignment: Alignment.bottomRight,
+            //child: FloatingActionButton(
+            //child: Icon(Icons.add_photo_alternate),
+            //onPressed: () async {
+            //File val = await Navigator.push(context,
+            //MaterialPageRoute(builder: (context) => Camera()));
+            //}),
+            //),
           ],
         ),
         body: Center(
@@ -86,7 +83,7 @@ class Lab02State extends State<Lab02> {
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = [
     VideoPlayer(),
-    HomeScreen(),
+    CameraScreen(),
   ];
 
   void _onItemTapped(int index) {
