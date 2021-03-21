@@ -110,7 +110,8 @@ class Lab02State extends State<Lab02> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white,
+        selectedItemColor: Colors.green,
         onTap: _onItemTapped,
       ),
     );

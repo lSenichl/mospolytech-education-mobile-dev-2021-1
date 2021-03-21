@@ -17,8 +17,7 @@ class LabDop01State extends State<LabDop01> {
             child: ListView(children: <Widget>[
           Padding(
             padding: EdgeInsets.only(bottom: 10),
-            child: Text('Введите данные для регистрации:',
-                style: TextStyle(fontSize: 18)),
+            child: Text('1:', style: TextStyle(fontSize: 18)),
           )
         ])));
   }
