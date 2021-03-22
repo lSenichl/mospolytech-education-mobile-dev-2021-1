@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:http/http.dart' as http;
+import 'package:html/dom.dart' as dom;
+import 'package:html/parser.dart' as parser;
 
 class WebViewWeather extends StatefulWidget {
   @override
@@ -58,7 +60,7 @@ class _WebViewWeatherState extends State<WebViewWeather> {
     return JavascriptChannel(
         name: 'Toaster',
         onMessageReceived: (JavascriptMessage message) {
-          Scaffold.of(context).showSnackBar(
+          ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(message.message)),
           );
         });
@@ -77,7 +79,7 @@ class Lab03State extends State<Lab03> {
   List<Widget> _widgetOptions = [
     WebViewWeather(),
     HTMLDownload(),
-    JSONDownload(),
+    CelciumDownload(),
   ];
 
   void _onItemTapped(int index) {
@@ -157,13 +159,13 @@ class _HTMLDownloadState extends State<HTMLDownload> {
   }
 }
 
-class JSONDownload extends StatefulWidget {
+class CelciumDownload extends StatefulWidget {
   @override
-  _JSONDownloadState createState() => _JSONDownloadState();
+  _CelciumDownloadState createState() => _CelciumDownloadState();
 }
 
-class _JSONDownloadState extends State<JSONDownload> {
-  var val;
+class _CelciumDownloadState extends State<CelciumDownload> {
+  var val2;
 
   @override
   Widget build(BuildContext context) {
@@ -177,9 +179,14 @@ class _JSONDownloadState extends State<JSONDownload> {
                 child: FloatingActionButton(
                     child: Icon(Icons.arrow_downward),
                     onPressed: () async {
-                      val = await http.get(Uri.https('api.openweathermap.org',
-                          '/data/2.5/weather?q=Moscow&appid=3f78296e6ab83804e411f607927df45f'));
-                      val = val.body;
+                      val2 = await http
+                          .get(Uri.https('yandex.ru', 'pogoda/moscow'));
+                      dom.Document document = parser.parse(val2.body);
+                      var content = document
+                          .getElementsByClassName('fact__temp')[0]
+                          .getElementsByClassName('temp__value_with-unit')[0]
+                          .innerHtml;
+                      val2 = content.toString();
                       setState(() {});
                     }),
               ),
@@ -188,10 +195,10 @@ class _JSONDownloadState extends State<JSONDownload> {
         ),
         body: Center(
             child: Container(
-                height: MediaQuery.of(context).size.height * 0.8,
-                width: MediaQuery.of(context).size.width * 0.9,
-                child: val != null
-                    ? ListView(children: <Widget>[Html(data: val)])
+                child: val2 != null
+                    ? Center(
+                        child: Text('В Москве: ' + val2 + '°C',
+                            style: TextStyle(fontSize: 50)))
                     : Center(
                         child: Text("Нажмите кнопку \"Download\" !",
                             style: TextStyle(fontSize: 25))))));
