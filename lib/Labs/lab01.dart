@@ -41,7 +41,7 @@ class Lab01State extends State<Lab01> {
           child: ListView(
             children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(bottom: 10),
+                padding: EdgeInsets.only(bottom: 5),
                 child: Text('Введите данные для регистрации:',
                     style: TextStyle(fontSize: 18)),
               ),
@@ -93,7 +93,7 @@ class Lab01State extends State<Lab01> {
                 ),
               ]),
               Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 10),
+                padding: EdgeInsets.only(top: 10, bottom: 5),
                 child: Text('Кто вы?', style: TextStyle(fontSize: 18)),
               ),
               Row(textDirection: TextDirection.ltr, children: [
@@ -129,7 +129,7 @@ class Lab01State extends State<Lab01> {
                 ),
               ]),
               Padding(
-                padding: EdgeInsets.only(top: 10, bottom: 20),
+                padding: EdgeInsets.only(top: 5, bottom: 10),
                 child: Text('Сколько вам лет?', style: TextStyle(fontSize: 18)),
               ),
               SleekCircularSlider(
@@ -157,7 +157,7 @@ class Lab01State extends State<Lab01> {
                     print(value.ceil().toInt().toString());
                   }),
               Padding(
-                padding: EdgeInsets.only(bottom: 10),
+                padding: EdgeInsets.only(bottom: 5),
                 child: Text('Сколько вам лет?', style: TextStyle(fontSize: 18)),
               ),
               SfSlider(
@@ -177,7 +177,7 @@ class Lab01State extends State<Lab01> {
                 },
               ),
               Padding(
-                padding: EdgeInsets.only(top: 25, bottom: 10),
+                padding: EdgeInsets.only(top: 15, bottom: 5),
                 child: Text('Сколько вам лет?', style: TextStyle(fontSize: 18)),
               ),
               SfRangeSlider(
@@ -197,7 +197,7 @@ class Lab01State extends State<Lab01> {
                 },
               ),
               Padding(
-                padding: EdgeInsets.only(top: 20, bottom: 10),
+                padding: EdgeInsets.only(top: 15, bottom: 5),
                 child: Center(
                   child: Row(
                     textDirection: TextDirection.ltr,
