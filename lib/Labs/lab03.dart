@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:http/http.dart' as http;
 
 class WebViewWeather extends StatefulWidget {
@@ -75,8 +76,8 @@ class Lab03State extends State<Lab03> {
   int _selectedIndex = 0;
   List<Widget> _widgetOptions = [
     WebViewWeather(),
-    Text('2'),
-    Text('3'),
+    HTMLDownload(),
+    JSONDownload(),
   ];
 
   void _onItemTapped(int index) {
@@ -112,5 +113,87 @@ class Lab03State extends State<Lab03> {
         onTap: _onItemTapped,
       ),
     );
+  }
+}
+
+class HTMLDownload extends StatefulWidget {
+  @override
+  _HTMLDownloadState createState() => _HTMLDownloadState();
+}
+
+class _HTMLDownloadState extends State<HTMLDownload> {
+  var val;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        floatingActionButton: Stack(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left: 31),
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: FloatingActionButton(
+                    child: Icon(Icons.arrow_downward),
+                    onPressed: () async {
+                      val = await http
+                          .get(Uri.https('yandex.ru', 'pogoda/moscow'));
+                      val = val.body;
+                      setState(() {});
+                    }),
+              ),
+            ),
+          ],
+        ),
+        body: Center(
+            child: Container(
+                height: MediaQuery.of(context).size.height * 0.8,
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: val != null
+                    ? ListView(children: <Widget>[Html(data: val)])
+                    : Center(
+                        child: Text("Нажмите кнопку \"Download\" !",
+                            style: TextStyle(fontSize: 25))))));
+  }
+}
+
+class JSONDownload extends StatefulWidget {
+  @override
+  _JSONDownloadState createState() => _JSONDownloadState();
+}
+
+class _JSONDownloadState extends State<JSONDownload> {
+  var val;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        floatingActionButton: Stack(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(left: 31),
+              child: Align(
+                alignment: Alignment.bottomRight,
+                child: FloatingActionButton(
+                    child: Icon(Icons.arrow_downward),
+                    onPressed: () async {
+                      val = await http.get(Uri.https('api.openweathermap.org',
+                          '/data/2.5/weather?q=Moscow&appid=3f78296e6ab83804e411f607927df45f'));
+                      val = val.body;
+                      setState(() {});
+                    }),
+              ),
+            ),
+          ],
+        ),
+        body: Center(
+            child: Container(
+                height: MediaQuery.of(context).size.height * 0.8,
+                width: MediaQuery.of(context).size.width * 0.9,
+                child: val != null
+                    ? ListView(children: <Widget>[Html(data: val)])
+                    : Center(
+                        child: Text("Нажмите кнопку \"Download\" !",
+                            style: TextStyle(fontSize: 25))))));
   }
 }
