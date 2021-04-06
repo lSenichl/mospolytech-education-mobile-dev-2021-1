@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "616824236612",
+    "project_id": "baryshnikov-ss-flutter",
+    "storage_bucket": "baryshnikov-ss-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616824236612:android:7a28b74b5747d213506a11",
+        "android_client_info": {
+          "package_name": "com.example.baryshnikov_ss_191_351"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616824236612-0q96j046c6hjvtl6el69f9cdgo3rdruu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.baryshnikov_ss_191_351",
+            "certificate_hash": "fe8d2ea6c8fd4080896a381a0db50721fbf10e53"
+          }
+        },
+        {
+          "client_id": "616824236612-hev58lnngci9213ch5q8ci2i3h65enop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwT0-hWplkDtP76AkeG4QiQdVbx6oFuS0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616824236612-hev58lnngci9213ch5q8ci2i3h65enop.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
