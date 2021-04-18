@@ -36,7 +36,6 @@ dependencies:
   camera_camera:
   camera:
   google_sign_in:
-  file_encrypter:
   dio:
   encrypt:
   aes_crypt:
