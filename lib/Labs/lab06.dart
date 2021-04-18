@@ -85,8 +85,6 @@ class Lab06State extends State<Lab06> {
                 crypt.setOverwriteMode(AesCryptOwMode.warn);
 
                 try {
-                  // Decrypts the file which has been just encrypted and tries to save it under
-                  // another name than source file name.
                   decFilepath = crypt.decryptFileSync(filePath,
                       '/storage/emulated/0/Download/testfile_new.txt');
                   print('The decryption has been completed successfully.');
