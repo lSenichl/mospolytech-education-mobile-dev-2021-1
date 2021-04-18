@@ -52,7 +52,7 @@ class Lab04State extends State<Lab04> {
             subtitle: Text(_currentUser.email ?? ''),
           ),
           ElevatedButton(
-            child: const Text('SIGN OUT'),
+            child: const Text('Выйти из аккаунта'),
             onPressed: _handleSignOut,
           ),
         ],
@@ -61,9 +61,9 @@ class Lab04State extends State<Lab04> {
       return Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          const Text("You are not currently signed in."),
+          const Text("Вы не вошли в аккаунт."),
           ElevatedButton(
-            child: const Text('SIGN IN'),
+            child: const Text('Войти в аккаунт'),
             onPressed: _handleSignIn,
           ),
         ],

@@ -33,7 +33,7 @@ class MyHomePage extends StatelessWidget {
           accentColor: Colors.green,
           unselectedWidgetColor: Colors.green),
       home: DefaultTabController(
-        length: 10,
+        length: 8,
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
@@ -47,8 +47,6 @@ class MyHomePage extends StatelessWidget {
                 Tab(text: 'Lab06'),
                 Tab(text: 'Lab07'),
                 Tab(text: 'Lab08'),
-                Tab(text: 'Lab09'),
-                Tab(text: 'Lab10'),
               ],
             ),
             title: Text(
@@ -62,20 +60,6 @@ class MyHomePage extends StatelessWidget {
               Lab03(),
               Lab04(),
               Lab05(),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'В разработке...',
-                  textDirection: TextDirection.ltr,
-                ),
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'В разработке...',
-                  textDirection: TextDirection.ltr,
-                ),
-              ),
               Align(
                 alignment: Alignment.center,
                 child: Text(
