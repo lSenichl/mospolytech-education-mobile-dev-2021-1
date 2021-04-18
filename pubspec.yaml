@@ -36,6 +36,12 @@ dependencies:
   camera_camera:
   camera:
   google_sign_in:
+  file_encrypter:
+  dio:
+  encrypt:
+  aes_crypt:
+  downloads_path_provider:
+  permission_handler:
 
 
   # The following adds the Cupertino Icons font to your application.

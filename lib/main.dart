@@ -4,6 +4,7 @@ import 'Labs/lab02.dart';
 import 'Labs/lab03.dart';
 import 'Labs/lab04.dart';
 import 'Labs/lab05.dart';
+import 'Labs/lab06.dart';
 
 void main() {
   runApp(MyApp());
@@ -60,13 +61,7 @@ class MyHomePage extends StatelessWidget {
               Lab03(),
               Lab04(),
               Lab05(),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'В разработке...',
-                  textDirection: TextDirection.ltr,
-                ),
-              ),
+              Lab06(),
               Align(
                 alignment: Alignment.center,
                 child: Text(
