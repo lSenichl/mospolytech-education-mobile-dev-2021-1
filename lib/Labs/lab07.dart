@@ -14,7 +14,7 @@ class Lab07State extends State<Lab07> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
   List<String> _data = [];
   static const String BOT_URL =
-      "https://flutter-chatbot-senich.herokuapp.com/bot"; // replace with server address
+      "https://flutter-chatbot-senich.herokuapp.com/bot";
   TextEditingController _queryController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,6 @@ class Lab07State extends State<Lab07> {
           Padding(
             padding: EdgeInsets.all(15),
             child: AnimatedList(
-                // key to call remove and insert from anywhere
                 key: _listKey,
                 initialItemCount: _data.length,
                 itemBuilder:
@@ -42,7 +41,7 @@ class Lab07State extends State<Lab07> {
                     Icons.message,
                     color: Colors.greenAccent,
                   ),
-                  hintText: "Hello",
+                  hintText: "Сообщение",
                 ),
                 controller: _queryController,
                 textInputAction: TextInputAction.send,
