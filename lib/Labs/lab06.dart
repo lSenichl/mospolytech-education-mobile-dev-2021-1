@@ -29,7 +29,7 @@ class Lab06State extends State<Lab06> {
           children: [
             Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text('Введите пароль для шифрования: ')),
+                child: Text('Введите пароль для шифрования/дешифрования: ')),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
@@ -60,17 +60,24 @@ class Lab06State extends State<Lab06> {
                       '/storage/emulated/0/Download/testfile_encrypted.aes');
                   print('The encryption has been completed successfully.');
                   print('Encrypted file: $encFilepath');
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                          'The encryption has been completed successfully. \n\n Encrypted file: $encFilepath')));
                 } on AesCryptException catch (e) {
                   if (e.type == AesCryptExceptionType.destFileExists) {
                     print('The encryption has been completed unsuccessfully.');
                     print(e.message);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                            'The encryption has been completed unsuccessfully. \n\n' +
+                                e.message)));
                   }
                   return;
                 }
                 print('Encryption Ended');
               },
               icon: Icon(Icons.cloud_download),
-              label: Text('Encrypt File'),
+              label: Text('Зашифровать файл'),
             ),
             ElevatedButton.icon(
               onPressed: () async {
@@ -91,16 +98,24 @@ class Lab06State extends State<Lab06> {
                   print('Decrypted file 2: $decFilepath');
                   print(
                       'File content: ' + File(decFilepath).readAsStringSync());
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                          'The decryption has been completed successfully. \n\n Decrypted file 2: $decFilepath \n\n File content: ' +
+                              File(decFilepath).readAsStringSync())));
                 } on AesCryptException catch (e) {
                   if (e.type == AesCryptExceptionType.destFileExists) {
                     print('The decryption has been completed unsuccessfully.');
                     print(e.message);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                            'The decryption has been completed unsuccessfully. \n\n' +
+                                e.message)));
                   }
                 }
                 print('Decryption Ended');
               },
               icon: Icon(Icons.cloud_download),
-              label: Text('Decrypt File'),
+              label: Text('Расшифровать файл'),
             ),
           ],
         ),
