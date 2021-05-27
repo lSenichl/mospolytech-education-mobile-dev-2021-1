@@ -26,14 +26,14 @@ dependencies:
   sleek_circular_slider:
   syncfusion_flutter_sliders:
   video_player:
-  chewie:
+  chewie: ^0.12.2
   path_provider:
   flutter_file_dialog:
   image_gallery_saver:
   webview_flutter:
   http:
   flutter_html:
-  camera_camera:
+  camera_camera: ^1.0.34+1
   camera:
   google_sign_in:
   dio:
@@ -42,6 +42,14 @@ dependencies:
   downloads_path_provider:
   permission_handler:
   bubble:
+  socket_io_client:
+  web_socket_channel:
+  flutter_dotenv:
+  stream_chat_flutter:
+  async_builder:
+  flutter_socket_io:
+  provider:
+  
 
 
   # The following adds the Cupertino Icons font to your application.
