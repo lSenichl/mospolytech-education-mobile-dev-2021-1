@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:web_socket_channel/io.dart';
 import 'Labs/lab01.dart';
 import 'Labs/lab02.dart';
 import 'Labs/lab03.dart';
@@ -7,6 +6,7 @@ import 'Labs/lab04.dart';
 import 'Labs/lab05.dart';
 import 'Labs/lab06.dart';
 import 'Labs/lab07.dart';
+import 'Labs/lab08.dart';
 
 void main() {
   runApp(MyApp());
@@ -65,13 +65,7 @@ class MyHomePage extends StatelessWidget {
               Lab05(),
               Lab06(),
               Lab07(),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'В разработке...',
-                  textDirection: TextDirection.ltr,
-                ),
-              ),
+              Lab08(),
             ],
           ),
         ),
