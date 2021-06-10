@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import '../main.dart';
 
 GoogleSignIn _googleSignIn = GoogleSignIn(
   scopes: <String>[
@@ -73,6 +74,8 @@ class Lab04State extends State<Lab04> {
 
   @override
   Widget build(BuildContext context) {
+    MyApp.analytics
+        .logEvent(name: 'lab09_lab04_tab_was_opened', parameters: null);
     return Scaffold(
         body: ConstrainedBox(
       constraints: const BoxConstraints.expand(),

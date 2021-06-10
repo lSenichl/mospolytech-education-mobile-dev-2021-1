@@ -7,6 +7,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:http/http.dart' as http;
 import 'package:html/dom.dart' as dom;
 import 'package:html/parser.dart' as parser;
+import '../main.dart';
 
 class WebViewWeather extends StatefulWidget {
   @override
@@ -90,6 +91,8 @@ class Lab03State extends State<Lab03> {
 
   @override
   Widget build(BuildContext context) {
+    MyApp.analytics
+        .logEvent(name: 'lab09_lab03_tab_was_opened', parameters: null);
     return Scaffold(
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),

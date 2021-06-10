@@ -7,6 +7,7 @@ import 'package:uuid/uuid.dart';
 import 'package:web_socket_channel/io.dart';
 import 'package:web_socket_channel/status.dart' as status;
 import 'package:bubble/bubble.dart';
+import '../main.dart';
 
 ScrollController _scrollController = new ScrollController();
 
@@ -21,6 +22,8 @@ class _Lab07State extends State<Lab07> {
 
   @override
   Widget build(BuildContext context) {
+    MyApp.analytics
+        .logEvent(name: 'lab09_lab07_tab_was_opened', parameters: null);
     return Scaffold(
       body: Container(
         padding: EdgeInsets.all(8),

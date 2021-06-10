@@ -7,26 +7,43 @@ import 'Labs/lab05.dart';
 import 'Labs/lab06.dart';
 import 'Labs/lab07.dart';
 import 'Labs/lab08.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_analytics/observer.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  static FirebaseAnalytics analytics = FirebaseAnalytics();
+  static FirebaseAnalyticsObserver observer =
+      FirebaseAnalyticsObserver(analytics: analytics);
+
   @override
   Widget build(BuildContext context) {
+    FirebaseAnalytics()
+        .logEvent(name: 'lab09_launch_the_app', parameters: null);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter App by lSenichl',
+      navigatorObservers: <NavigatorObserver>[observer],
       home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  static FirebaseAnalytics analytics = FirebaseAnalytics();
+  static FirebaseAnalyticsObserver observer =
+      FirebaseAnalyticsObserver(analytics: analytics);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorObservers: <NavigatorObserver>[observer],
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           visualDensity: VisualDensity.adaptivePlatformDensity,

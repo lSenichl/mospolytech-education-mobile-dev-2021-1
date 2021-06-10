@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:camera_camera/camera_camera.dart';
 import 'dart:io';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
+import '../main.dart';
 
 class CameraScreen extends StatefulWidget {
   @override
@@ -46,15 +47,6 @@ class _CameraScreenState extends State<CameraScreen> {
                     }),
               ),
             ),
-            //Align(
-            //alignment: Alignment.bottomRight,
-            //child: FloatingActionButton(
-            //child: Icon(Icons.add_photo_alternate),
-            //onPressed: () async {
-            //File val = await Navigator.push(context,
-            //MaterialPageRoute(builder: (context) => Camera()));
-            //}),
-            //),
           ],
         ),
         body: Center(
@@ -94,6 +86,8 @@ class Lab02State extends State<Lab02> {
 
   @override
   Widget build(BuildContext context) {
+    MyApp.analytics
+        .logEvent(name: 'lab09_lab02_tab_was_opened', parameters: null);
     return Scaffold(
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),

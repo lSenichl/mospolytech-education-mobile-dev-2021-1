@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:intl/intl.dart';
+import '../main.dart';
 
 class Lab08 extends StatefulWidget {
   @override
@@ -25,6 +26,8 @@ class _Lab08State extends State<Lab08> {
   }
 
   void getJwt() {
+    MyApp.analytics
+        .logEvent(name: 'lab09_lab08_get_jwt_token', parameters: null);
     client
         .postUrl(Uri.parse('https://flutter-jwt-senich.herokuapp.com/auth'))
         .then((HttpClientRequest request) {
@@ -44,6 +47,8 @@ class _Lab08State extends State<Lab08> {
   }
 
   void getResp() {
+    MyApp.analytics
+        .logEvent(name: 'lab09_lab08_get_auth_resp', parameters: null);
     client
         .getUrl(Uri.parse('https://flutter-jwt-senich.herokuapp.com/protected'))
         .then((HttpClientRequest request) {
@@ -81,6 +86,8 @@ class _Lab08State extends State<Lab08> {
 
   @override
   Widget build(BuildContext context) {
+    MyApp.analytics
+        .logEvent(name: 'lab09_lab08_tab_was_opened', parameters: null);
     return SingleChildScrollView(
         child: Column(
       children: [

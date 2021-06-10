@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:http/http.dart' as http;
+import '../main.dart';
 
 class Lab05 extends StatefulWidget {
   @override
@@ -94,6 +95,8 @@ class Lab05State extends State<Lab05> {
 
   @override
   Widget build(BuildContext context) {
+    MyApp.analytics
+        .logEvent(name: 'lab09_lab05_tab_was_opened', parameters: null);
     return Scaffold(
       body: Container(
         width: double.infinity,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_file_dialog/flutter_file_dialog.dart';
 import 'dart:io';
 import 'package:aes_crypt/aes_crypt.dart';
+import '../main.dart';
 
 class Lab06 extends StatefulWidget {
   @override
@@ -23,6 +24,8 @@ class Lab06State extends State<Lab06> {
 
   @override
   Widget build(BuildContext context) {
+    MyApp.analytics
+        .logEvent(name: 'lab09_lab06_tab_was_opened', parameters: null);
     return Scaffold(
       body: Center(
         child: ListView(

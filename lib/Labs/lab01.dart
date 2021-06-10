@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import '../main.dart';
 
 class Lab01 extends StatefulWidget {
   @override
@@ -9,20 +11,18 @@ class Lab01 extends StatefulWidget {
   }
 }
 
+FirebaseAnalytics analytics = FirebaseAnalytics();
+
 enum SingingCharacter { radio1, radio2 }
 
 class Lab01State extends State<Lab01> {
-  //
   final _formKey = GlobalKey<FormState>();
 
-  //
   SfRangeValues _values = SfRangeValues(40.0, 80.0);
   double _value = 40.0;
 
-  //
   SingingCharacter _character = SingingCharacter.radio1;
 
-  //
   bool rememberMe = false;
 
   void _onRememberMeChanged(bool newValue) => setState(() {
@@ -33,6 +33,8 @@ class Lab01State extends State<Lab01> {
 
   @override
   Widget build(BuildContext context) {
+    MyApp.analytics
+        .logEvent(name: 'lab09_lab01_tab_was_opened', parameters: null);
     return Padding(
       padding: EdgeInsets.all(25),
       child: Center(
@@ -216,10 +218,9 @@ class Lab01State extends State<Lab01> {
                 padding: EdgeInsets.only(bottom: 30),
                 child: ElevatedButton(
                   onPressed: () {
-                    // Validate returns true if the form is valid, or false
-                    // otherwise.
+                    MyApp.analytics.logEvent(
+                        name: 'lab09_lab01_button_pressed', parameters: null);
                     if (_formKey.currentState.validate()) {
-                      // If the form is valid, display a Snackbar.
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text('Ваши данные успешно сохранены!')));
                     }
